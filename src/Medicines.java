@@ -27,7 +27,7 @@ public class Medicines extends javax.swing.JFrame {
         allMData.setText("");
 
         for (int i = 0; i < allMedicines.size(); i++) {
-            allMData.append(allMedicines.get(i).getId() + "   " + allMedicines.get(i).getName() + "   " + allMedicines.get(i).getSellingPrice() + "   " + allMedicines.get(i).getBuyingPrice() + "   " + allMedicines.get(i).getQuantity() + "   " + allMedicines.get(i).getDescription() + "   " + "\n");
+            allMData.append("ID: " + allMedicines.get(i).getId() + "   " + "Name: " + allMedicines.get(i).getName() + "   " + "Selling Price: " + allMedicines.get(i).getSellingPrice() + "   " + "Buying Price: " + allMedicines.get(i).getBuyingPrice() + "   " + "Quantity: " + allMedicines.get(i).getQuantity() + "   " + "Description: " + allMedicines.get(i).getDescription() + "   " + "\n");
         }
 
     }
@@ -43,8 +43,8 @@ public class Medicines extends javax.swing.JFrame {
                 medicine.setId(Integer.parseInt(curData[0]));
                 medicine.setName(curData[1]);
                 medicine.setSellingPrice(Float.parseFloat(curData[2]));
-                medicine.setSellingPrice(Float.parseFloat(curData[3]));
-                 medicine.setQuantity(Integer.parseInt(curData[0]));
+                medicine.setBuyingPrice(Float.parseFloat(curData[3]));
+                medicine.setQuantity(Integer.parseInt(curData[4]));
                 medicine.setDescription(curData[5]);
                 allMedicines.add(medicine);
 
@@ -67,6 +67,7 @@ public class Medicines extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -75,6 +76,8 @@ public class Medicines extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -129,6 +132,16 @@ public class Medicines extends javax.swing.JFrame {
             }
         });
 
+        jButton11.setBackground(new java.awt.Color(255, 153, 153));
+        jButton11.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jButton11.setForeground(new java.awt.Color(204, 0, 0));
+        jButton11.setText("GO BACK");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
@@ -177,6 +190,26 @@ public class Medicines extends javax.swing.JFrame {
             .addGap(0, 382, Short.MAX_VALUE)
         );
 
+        jButton12.setBackground(new java.awt.Color(255, 153, 153));
+        jButton12.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jButton12.setForeground(new java.awt.Color(204, 0, 0));
+        jButton12.setText("GO BACK");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setBackground(new java.awt.Color(255, 153, 153));
+        jButton13.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jButton13.setForeground(new java.awt.Color(204, 0, 0));
+        jButton13.setText("GO BACK");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -190,6 +223,8 @@ public class Medicines extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
+                        .addGap(398, 398, 398)
+                        .addComponent(jButton13)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -199,6 +234,11 @@ public class Medicines extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(1585, 1585, 1585)
+                    .addComponent(jButton12)
+                    .addContainerGap(1585, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +254,10 @@ public class Medicines extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -222,6 +265,11 @@ public class Medicines extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(271, 271, 271)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(272, Short.MAX_VALUE)))
         );
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
@@ -444,12 +492,12 @@ public class Medicines extends javax.swing.JFrame {
     }//GEN-LAST:event_idActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -489,43 +537,77 @@ public class Medicines extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-         if (id.getText().equals("")) {
+        if (id.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Enter valid medicine ID.");
         } else {
+            int enteredId;
+            try {
+                enteredId = Integer.parseInt(id.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Medicine ID must be a valid number.");
+                return;
+            }
+
             Medicine medicine = null;
             for (int i = 0; i < allMedicines.size(); i++) {
-                medicine = allMedicines.get(i);
-                break;
+                if (allMedicines.get(i).getId() == enteredId) {
+                    medicine = allMedicines.get(i);
+                    break;
+                }
             }
+
             if (medicine == null) {
-                JOptionPane.showMessageDialog(null, "Enter valid medicine ID.");
+                JOptionPane.showMessageDialog(null, "No medicine found with the given ID.");
             } else {
-                JOptionPane.showMessageDialog(null, "MEDICINE INFORMATION: \nName: " + medicine.getName() + "\nSelling Price: " + medicine.getSellingPrice() + "\nBuying Price: " + medicine.getBuyingPrice() + "\nQuantity: " + medicine.getQuantity() + "\nDescription: " + medicine.getDescription() + "\n");
+                JOptionPane.showMessageDialog(null,
+                        "MEDICINE INFORMATION:\n"
+                        + "Name: " + medicine.getName() + "\n"
+                        + "Selling Price: " + medicine.getSellingPrice() + "\n"
+                        + "Buying Price: " + medicine.getBuyingPrice() + "\n"
+                        + "Quantity: " + medicine.getQuantity() + "\n"
+                        + "Description: " + medicine.getDescription() + "\n"
+                );
             }
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
-     void saveAllData(){
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        setVisible(false);
+        new home().setVisible(true);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        setVisible(false);
+        new home().setVisible(true);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        setVisible(false);
+        new home().setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    void saveAllData() {
         try {
             FileWriter fw = new FileWriter("mdata.txt");
-            
-            for (int i=0; i<allMedicines.size();i++){
-                fw.write(allMedicines.get(i).getId() + ";" + allMedicines.get(i).getName() + ";" + allMedicines.get(i).getSellingPrice() + ";" + allMedicines.get(i).getBuyingPrice() + ";" + allMedicines.get(i).getQuantity() + ";" + allMedicines.get(i).getDescription() + ";"+"\n");
+
+            for (int i = 0; i < allMedicines.size(); i++) {
+                fw.write(allMedicines.get(i).getId() + ";" + allMedicines.get(i).getName() + ";" + allMedicines.get(i).getSellingPrice() + ";" + allMedicines.get(i).getBuyingPrice() + ";" + allMedicines.get(i).getQuantity() + ";" + allMedicines.get(i).getDescription() + ";" + "\n");
             }
             fw.close();
         } catch (Exception e) {
         }
     }
-    
+
     boolean checkID() {
 
         for (int i = 0; i < allMedicines.size(); i++) {
-            if (id.getText().equals(allMedicines.get(i).getId() + "")){
+            if (id.getText().equals(allMedicines.get(i).getId() + "")) {
                 return true;
             }
         }
         return false;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -583,6 +665,9 @@ public class Medicines extends javax.swing.JFrame {
     private javax.swing.JTextField id3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

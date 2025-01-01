@@ -10,10 +10,10 @@
 import java.util.ArrayList;
 
 public class BillingInfo {
-    int patientID;
-    ArrayList<Integer> medicineID;
-    int fee;
-    String date, rec; 
+    private int patientID;
+    private ArrayList<Integer> medicineID;
+    private int fee;
+    private String date, rec; 
 
     public BillingInfo() {
         this.patientID = 0;
@@ -32,7 +32,7 @@ public class BillingInfo {
     }
 
     public ArrayList<Integer> getMedicineID() {
-        return medicineID;
+        return this.medicineID;
     }
 
     public void setMedicineID(int medicineID) {

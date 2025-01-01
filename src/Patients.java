@@ -27,9 +27,8 @@ public class Patients extends javax.swing.JFrame {
         allPData.setText("");
 
         for (int i = 0; i < allPatients.size(); i++) {
-            allPData.append(allPatients.get(i).getId() + "   " + allPatients.get(i).getName() + "   " + allPatients.get(i).getAge() + "   " + allPatients.get(i).getGender() + "   " + allPatients.get(i).getAddress() + "   " + allPatients.get(i).getContact() + "   "+"\n");
+            allPData.append("ID: " + allPatients.get(i).getId() + "   " + "Name: " + allPatients.get(i).getName() + "   " + "Age: " + allPatients.get(i).getAge() + "   " + "Gender: " + allPatients.get(i).getGender() + "   " + "Address: " + allPatients.get(i).getAddress() + "   " + "Contact: " + allPatients.get(i).getContact() + "   " + "\n");
         }
-        
 
     }
 
@@ -68,6 +67,7 @@ public class Patients extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -103,6 +103,16 @@ public class Patients extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
         jLabel4.setText("IU HOSITAL MANAGEMENT");
 
+        jButton3.setBackground(new java.awt.Color(255, 153, 153));
+        jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(204, 0, 0));
+        jButton3.setText("GO BACK");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,7 +126,9 @@ public class Patients extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +144,10 @@ public class Patients extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -371,23 +386,38 @@ public class Patients extends javax.swing.JFrame {
     }//GEN-LAST:event_contactActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(id.getText().equals("")){
+        if (id.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Enter valid patient's ID.");
-        }
-        
-        else{
+        } else {
             Patient patient = null;
-            for (int i = 0; i<allPatients.size();i++){
-                patient = allPatients.get(i);
-                break;
+            int inputID;
+            try {
+                inputID = Integer.parseInt(id.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid ID format. Please enter a number.");
+                return;
             }
-          if (patient==null){
-               JOptionPane.showMessageDialog(null, "Enter valid patient's ID.");
-          }
-          else{
-              JOptionPane.showMessageDialog(null, "PATIENT'S INFORMATION: \nName: "+patient.getName()+"\nAge: "+patient.getAge()+"\nGender: "+patient.getGender()+"\nAddress: "+patient.getAddress()+"\nContact: "+patient.getContact()+"\n");
-          }
+
+            // Search for patient with matching ID
+            for (Patient p : allPatients) {
+                if (p.getId() == inputID) { // Assuming getID() is the method to fetch patient's ID
+                    patient = p;
+                    break;
+                }
+            }
+
+            if (patient == null) {
+                JOptionPane.showMessageDialog(null, "Patient not found with ID: " + inputID);
+            } else {
+                JOptionPane.showMessageDialog(null, "PATIENT'S INFORMATION: \n"
+                        + "Name: " + patient.getName() + "\n"
+                        + "Age: " + patient.getAge() + "\n"
+                        + "Gender: " + patient.getGender() + "\n"
+                        + "Address: " + patient.getAddress() + "\n"
+                        + "Contact: " + patient.getContact() + "\n");
+            }
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -409,7 +439,7 @@ public class Patients extends javax.swing.JFrame {
                 patient.setAddress(address.getText());
                 patient.setContact(contact.getText());
                 allPatients.add(patient);
-                
+
                 id.setText("");
                 name.setText("");
                 age.setText("");
@@ -418,29 +448,32 @@ public class Patients extends javax.swing.JFrame {
                 contact.setText("");
                 writeAllData();
                 saveAllData();
-                
-            }
-            
-            catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Something went wron! Try again.");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Something went wron! Try again.");
             }
         }
-        
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    void saveAllData(){
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        setVisible(false);
+        new home().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    void saveAllData() {
         try {
             FileWriter fw = new FileWriter("pdata.txt");
-            
-            for (int i=0; i<allPatients.size();i++){
-                fw.write(allPatients.get(i).getId() + ";" + allPatients.get(i).getName() + ";" + allPatients.get(i).getAge() + ";" + allPatients.get(i).getGender() + ";" + allPatients.get(i).getAddress() + ";" + allPatients.get(i).getContact() + ";"+"\n");
+
+            for (int i = 0; i < allPatients.size(); i++) {
+                fw.write(allPatients.get(i).getId() + ";" + allPatients.get(i).getName() + ";" + allPatients.get(i).getAge() + ";" + allPatients.get(i).getGender() + ";" + allPatients.get(i).getAddress() + ";" + allPatients.get(i).getContact() + ";" + "\n");
             }
             fw.close();
         } catch (Exception e) {
         }
     }
-    
+
     boolean checkID() {
 
         for (int i = 0; i < allPatients.size(); i++) {
@@ -492,6 +525,7 @@ public class Patients extends javax.swing.JFrame {
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

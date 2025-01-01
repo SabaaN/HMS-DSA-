@@ -167,6 +167,9 @@ public class home extends javax.swing.JFrame {
         earnings.setBackground(new java.awt.Color(255, 255, 255));
         earnings.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 5, true));
         earnings.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                earningsMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 earningsMouseEntered(evt);
             }
@@ -213,6 +216,9 @@ public class home extends javax.swing.JFrame {
         checkup.setBackground(new java.awt.Color(255, 255, 255));
         checkup.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 5, true));
         checkup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkupMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 checkupMouseEntered(evt);
             }
@@ -242,7 +248,7 @@ public class home extends javax.swing.JFrame {
                     .addGroup(checkupLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jLabel21)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         checkupLayout.setVerticalGroup(
             checkupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,6 +265,9 @@ public class home extends javax.swing.JFrame {
         reports.setBackground(new java.awt.Color(255, 255, 255));
         reports.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 5, true));
         reports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reportsMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 reportsMouseEntered(evt);
             }
@@ -272,6 +281,11 @@ public class home extends javax.swing.JFrame {
         jLabel24.setText("REPORTS");
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/report 1.png"))); // NOI18N
+        jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel26MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout reportsLayout = new javax.swing.GroupLayout(reports);
         reports.setLayout(reportsLayout);
@@ -419,12 +433,12 @@ public class home extends javax.swing.JFrame {
                     .addComponent(poweroff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(14, 14, 14)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(63, 63, 63)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(patient, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(reports, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -434,7 +448,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(earnings, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkup, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(poweroff, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -450,9 +464,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,15 +477,16 @@ public class home extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(14, 14, 14))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1011, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -545,6 +558,28 @@ public class home extends javax.swing.JFrame {
         this.setVisible(false);
         medicines.setVisible(true);
     }//GEN-LAST:event_medicinesMouseClicked
+
+    private void checkupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkupMouseClicked
+        checkup check_up = new checkup();
+        this.setVisible(false);
+        check_up.setVisible(true);
+    }//GEN-LAST:event_checkupMouseClicked
+
+    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
+
+    }//GEN-LAST:event_jLabel26MouseClicked
+
+    private void reportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseClicked
+        Reports report = new Reports();
+        this.setVisible(false);
+        report.setVisible(true);
+    }//GEN-LAST:event_reportsMouseClicked
+
+    private void earningsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_earningsMouseClicked
+        Earnings earning = new Earnings();
+        this.setVisible(false);
+        earning.setVisible(true);
+    }//GEN-LAST:event_earningsMouseClicked
 
     /**
      * @param args the command line arguments

@@ -1,1 +1,4 @@
-1001;Panadol;55.0;65.0;100;good for headache;
+1001;Panadol;55.0;65.0;77;good for headache;
+1002;Rigix;135.0;125.0;92;anti allergy or smthn;
+1003;Acefyl;700.0;200.0;100;for flu;
+1004;Arinac;800.0;100.0;195;for flu and fever;
