@@ -1,2 +1,2 @@
-# HOSPITAL MANAGEMENT SYSTEM IN JAVA WITH JAVA SWING
+# HOSPITAL MANAGEMENT SYSTEM WITH JAVA SWING
 A management system project to practice and implement some of the DSA concepts. Java swing ui
